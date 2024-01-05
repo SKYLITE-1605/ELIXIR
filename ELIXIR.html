@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELIXIR</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+        ul
+        {
+            list-style-type: none;
+        }
+        
+        
+       
+        nav {
+            display: flex;
+            
+            justify-content: space-around;
+            background-color:rgb(25, 0, 68);
+            padding: 0.5em;
+          
+            
+        }
+        .leftcolumn 
+        {   
+           float: left;
+           width: 75%;
+        }
+        .rightcolumn 
+        {
+          float: right;
+          
+         
+     
+        }
+        @media screen and (max-width: 800px) 
+        {
+          .leftcolumn, .rightcolumn
+           {   
+           width: 100%;
+           padding: 0;
+            }
+        }
+
+        @media screen and (max-width: 400px) 
+        {
+            .topnav a 
+            {
+                    float: none;
+                    width: 100%;
+            }
+        }
+
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            color: #ff9900; /* Highlight color on hover */
+        }
+
+        section {
+            padding: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s, transform 0.9s;
+        }
+        section.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        h2 {
+            color: rgb(25, 0, 68);
+        }
+        h4{
+            color:#ff9900;
+        }
+        h3.fruit{
+            color:rgb(114, 0, 49);
+        }
+		.energy-drinks
+		{
+		 color: #666;
+		}
+
+        p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        img.drink-image {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+       
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .AboutDrinks{
+            padding: 5px;
+            text-align: left;
+            color:#666
+        }
+        #soft-drinks{
+            font-family: Georgia, 'Times New Roman', Times, serif;
+          
+        }
+        .soft5{
+        text-align: left;
+        display: block;
+            color:rgb(0, 70, 15);
+            font-size:15px;
+        }
+        .fr{
+        text-align: left;
+        display: block;
+            color:rgba(183, 42, 105, 0.763);
+            font-size:15px;
+        }
+        .citrus {  
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 25%;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            justify-content: center;
+        }
+        .tropical
+        {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 25%;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            justify-content: center;
+        }
+        .berry
+        {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 25%;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            justify-content: center;
+        }
+        .cola
+        {   display: block;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 15%;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            justify-content: center;
+            width:150;
+            height:200;
+        }
+        .greenapplefizz
+        {   display: block;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 25%;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            justify-content: center;
+            width:150;
+            height:200;
+        }
+        .fruit1
+        {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 25%;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            justify-content: center;
+            width:150;
+            height:200;
+        }
+        .fruit2
+        {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 25%;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            justify-content: center;
+            width:150;
+            height:200;
+        }
+        .fruit3
+        {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 25%;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            justify-content: center;
+            width:150;
+            height:200;
+        }
+        .fruit4
+        {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 25%;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            justify-content: center;
+            width:150;
+            height:200;
+        }
+        .fruit5
+        {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 25%;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            justify-content: center;
+            width:150;
+            height:200;
+        }
+        .tropical:hover 
+        {
+         transform: scale(1.05);
+        }
+       .citrus:hover 
+        {
+         transform: scale(1.05);
+        }
+        .berry:hover 
+        {
+         transform: scale(1.05);
+        }
+        .cola:hover
+        {
+            transform: scale(1.05);
+        }
+        .greenapplefizz:hover
+        {
+            transform: scale(1.05);
+        }
+        .fruit1:hover
+        {
+            transform: scale(1.05);
+        }
+        .fruit2:hover
+        {
+            transform: scale(1.05);
+        }
+        .fruit3:hover
+        {
+            transform: scale(1.05);
+        }
+        .fruit4:hover
+        {
+            transform: scale(1.05);
+        }
+        .fruit5:hover
+        {
+            transform: scale(1.05);
+        }
+        .foot{
+          padding: 10px;
+          color:red;
+          font-size:15px;
+          text-align:center;
+        
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        form:hover {
+            transform: scale(1.02);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #444;
+            font-weight: bold;
+        }
+
+        select,
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+            position: relative;
+            width:100%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #orderConfirmation {
+            text-align: center;
+        }
+
+        #orderConfirmation p {
+            color: #333;
+        }
+        #customerlName
+        {
+            color:#4c42dc
+        }
+        #customerfName
+        {
+            color:#4c42dc
+        }
+        .container {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .image {
+      width: 100%;
+
+      height: auto;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1; /* Place the image behind other content */
+    }
+
+    .fade-out {
+      opacity: 0.5;
+    }
+    #quantity2, #quantity1, #priceLabel, #price {
+            display: none;
+        }
+
+        #price {
+            color: #4CAF50;
+            font-size: 18px;
+        }
+        #confirmation {
+            display: none;
+            margin-top: 20px;
+        }
+
+       
+
+        #confirmButtons {
+            margin-top: 10px;
+        }
+
+        #confirmButtons button {
+            margin-right: 10px;
+        }
+        #bill {
+            border: 2px solid #000;
+            padding: 10px;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        #bill p {
+            margin: 5px 0;
+        }
+
+        #bill:before {
+            content: 'Bill';
+            display: block;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        #confirmLabel {
+            font-size: 18px;
+            margin-top: 20px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="container">
+        <img src="C:\Users\Vasishta M\Desktop\html\soft_drinks\logo.png" alt="Your Image" class="image" id="fadeImage">
+       
+    </header>
+
+    <nav class="topnav">
+        <div class="leftcolumn">
+        <a href="#soft-drinks">Soft Drinks</a>
+        <a href="#fruit-juices">Fruit Juices</a>
+        <a href="#energy-drinks">Energy Drinks</a>
+        <a href="#order-drinks">Order Drinks</a></div>
+        <div class="rightcolumn">
+            <a href="#about">About</a></div>
+            
+    </nav>
+
+    
+    <section id="soft-drinks" class="active">
+        <h2>Soft Drinks</h2>
+        <h4>
+        Our soft drinks at ELIXIR are an exquisite symphony of taste, offering a range of five distinct and irresistible flavors.</h4>
+        <ol class="soft5">
+        <li><h3>
+        Citrus Splash:</h3>
+        Embark on a vibrant journey with our Citrus Splash soft drink. This zesty blend combines the tangy notes of sun-kissed oranges, lemons, and a hint of grapefruit, 
+        creating a refreshing explosion of citrus goodness with every sip.
+        <ul>
+           <li> <b>Flavor Profile</b>: A lively combination of sun-kissed oranges, lemons, and a hint of grapefruit.</li>
+        <li> <b> Tasting Experience</b>: Experience a refreshing burst of citrusy goodness with every sip. 
+        The perfect balance of sweet and tangy notes invigorates your palate, making Citrus Splash an ideal choice for those seeking a vibrant and uplifting beverage.</li>
+        </ul>
+        <br>
+        <img class="citrus" src="https://img.freepik.com/premium-photo/splash-liquid-lemonade-pour-swirl-it-with-realistic-drops_669646-3569.jpg?size=626&ext=jpg&ga=GA1.1.1826414947.1699747200&semt=ais"  style="width:25%" >
+        </li>
+        <li>
+            <h3>
+        Tropical Bliss:</h3>
+        
+        Escape to a tropical paradise with our Tropical Bliss soft drink. Immerse yourself in the lush flavors of exotic fruits, including juicy pineapple, succulent mango, and a touch of coconut, delivering a taste of the tropics that will transport you to sandy beaches and swaying palm trees.
+        <ul>
+        <li> Flavor Profile: An exotic blend of juicy pineapple, succulent mango, and a touch of coconut.
+        </li>
+        <li>Tasting Experience: Indulge in the tropical paradise of flavors that transport you to sandy beaches and swaying palm trees. 
+          Tropical Bliss offers a sweet and refreshing escape, making it a delightful choice for those who crave the taste of the tropics.
+        </li>
+        </ul>
+        <br>
+        <img class="tropical" src="https://5.imimg.com/data5/SELLER/Default/2021/12/GZ/WV/VX/3180617/pineapple-flavour.jpg " style="width:25%">
+        </li>
+        <li>
+        <h3>Berry Fusion:</h3>
+        
+        Indulge your senses in the delightful Berry Fusion soft drink. A harmonious mix of plump strawberries, ripe blueberries, and luscious raspberries, this blend offers a burst of sweetness and a medley of berry goodness that will leave your taste buds tingling.
+            <ul>
+
+           <li> Flavor Profile: A harmonious mix of plump strawberries, ripe blueberries, and luscious raspberries.
+            </li>
+            <li>Tasting Experience: Immerse yourself in the delightful world of berries with each sip. The combination of sweet and tart flavors creates a refreshing and invigorating experience.
+            Berry Fusion is a perfect choice for those who appreciate the natural and vibrant essence of berries.
+            </li>
+            </ul>
+            <img class="berry" src="https://sarastinykitchen.com/wp-content/uploads/2022/05/Blueberry-Lemon-Soda-Fast-768x614.jpg" style="width:25%">
+    </li>
+    <li>
+        <h3>Classic Cola Elegance:</h3>
+        Experience the timeless allure of our Classic Cola Elegance soft drink. A refined twist on the traditional cola, this beverage combines rich caramel undertones with a hint of vanilla, creating a sophisticated and smooth flavor profile that stands the test of time.
+        <ul>
+            <li>
+        Flavor Profile: A refined twist on the traditional cola with rich caramel undertones and a hint of vanilla.
+        </li>
+        <li>
+        Tasting Experience: Rediscover the timeless allure of cola with a touch of sophistication. 
+           Classic Cola Elegance offers a smooth and balanced flavor profile, making it a sophisticated choice for those who appreciate the classic cola taste with a contemporary twist.
+         </li>
+         <img class="cola" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Glass_of_Cola.jpg/526px-Glass_of_Cola.jpg" style="width:25%">
+        </ul>
+</li>
+    <li>
+      <h3>  Green Apple Fizz:</h3>
+        Savor the crisp and invigorating taste of our Green Apple Fizz soft drink. Bursting with the essence of freshly picked green apples, this effervescent creation delivers a perfect balance of sweetness and tartness, making it a delightful choice for those who crave a bold and refreshing experience.
+    <ul>
+        <li>
+            Flavor Profile: Crisp and invigorating taste of freshly picked green apples.
+            </li>
+            <li>
+Tasting Experience: Enjoy the perfect balance of sweetness and tartness in every sip. Green Apple Fizz provides a crisp and refreshing experience, making it an excellent choice for those who seek a bold and revitalizing beverage.
+        </li>
+        <img class="greenapplefizz" src="https://pbs.twimg.com/media/ESrXfKnXgAAkYoD?format=jpg&name=small" alt="green apple fizz img">
+    </ul>
+    </li>
+    <br>
+     <h2>   At ELIXIR, our soft drinks are more than just beverages; they are crafted experiences that cater to every palate. With quality ingredients and a commitment to excellence, each flavor tells a unique story, inviting you to explore the extraordinary in every bottle. Indulge in the symphony of taste with ELIXIR's soft drinks – where innovation meets refreshment.
+        </h2>
+        </ol>
+        
+        
+        
+        
+        
+    
+    </section>
+
+    <section id="fruit-juices">
+        <h2>Fruit Juices</h2>
+        <ol class="fr">
+            <li>
+        <h3 class="fruit"> Mango Tango Splash:</h3>
+        <ul>
+            <li>
+          Ingredients: Pure mango nectar, a splash of passion fruit, and a hint of lime.
+        </li>
+          <li>Tasting Experience: Dive into the tropical allure of ripe mangoes combined with the exotic twist of passion fruit. The addition of lime adds a zesty kick, creating a Mango Tango Splash that is both sweet and invigorating.
+         </li>
+        </ul>
+        </li>
+   <img src="https://lifezworld.com/wp-content/uploads/2021/03/IMG_a80a57-768x432.jpg" alt=" Mango Tango Splash" class="fruit1">
+            
+<li>
+    <h3 class="fruit">Berry Medley Burst:</h3>
+    <ul>
+        <li>
+   Ingredients: A blend of succulent strawberries, blueberries, blackberries, and a touch of mint.
+   </li>
+   <li>
+   Tasting Experience: Immerse yourself in the rich tapestry of berries with a burst of freshness from mint. Berry Medley Burst is a symphony of sweet and slightly tart notes, offering a delightful and revitalizing fruit drink.
+</li><img src="https://recipes.net/wp-content/uploads/2023/05/jamba-juice-berry-blend-smoothie_05894fe47bb93b5f426340f9beb2ecbb-768x768.jpeg" alt="Berry Medley Burst" class="fruit2">
+</ul>
+</li>
+<li>
+    <h3 class="fruit">Watermelon Wave Quencher:</h3>
+    <ul>
+        <li>
+            Ingredients: Juicy watermelon chunks, a hint of cucumber, and a splash of lime.
+   </li>
+   <li>
+    Tasting Experience: Ride the wave of refreshment with the hydrating essence of watermelon. The addition of cucumber and lime creates a cooling effect, making Watermelon Wave Quencher a perfect choice for hot summer days.
+   
+</li><img src="https://www.themixer.com/en-uk/wp-content/uploads/sites/3/2022/06/102.Watermelon-Daiquiri_Canva_Wiktory-watermelon-drink-1-1480x740.jpg" alt="Watermelon Wave Quencher" class="fruit3">
+</ul>
+</li>
+<li>
+    <h3 class="fruit">Pineapple Paradise Punch:</h3>
+    <ul>
+        <li>
+            Ingredients: Pineapple juice, coconut water, and a blend of tropical fruits (papaya, guava, and mango).
+   </li>
+   <li>
+    Tasting Experience: Transport yourself to a tropical paradise with the sweet and tropical fusion of pineapple, coconut, papaya, guava, and mango. Pineapple Paradise Punch is a true escape in a bottle.
+  
+</li><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiNA129LCs7c5PK6EuMdkfN8bLUeZmO4wtIiGUSZo8qNuyYc8Y" alt="Pinapple Paradise Punch" class="fruit4">
+</ul>
+</li>
+<li>
+    <h3 class="fruit">Citrus Breeze Bliss:</h3>
+    <ul>
+        <li>
+            Ingredients: A medley of oranges, grapefruits, and lemons with a touch of honey.
+   </li>
+   <li>
+    Tasting Experience: Enjoy the crisp and refreshing sensation of a Citrus Breeze Bliss. The combination of citrus fruits harmonizes with a hint of honey, creating a citrusy symphony that is both invigorating and subtly sweet.
+   
+</li><img src="https://qph.cf2.quoracdn.net/main-qimg-27fb3330946a7b719e738fc54a639eb2" alt="Citrus Breeze Bliss" class="fruit5">
+</ul>
+</li>
+<h2>
+These fruit drinks are crafted to provide a diverse range of flavors, catering to various preferences and offering a burst of natural goodness with every sip. Whether you prefer tropical, berry-infused, or citrusy delights, this variety of fruit drinks has something to tantalize every taste bud.
+ </h2>      
+        </ol>  
+        
+    </section>
+
+    <section id="energy-drinks">
+	<h2 style="color:green;">Energy Drinks</h2>
+        <h2>Energizing Citrus Surge:</h2>
+		
+      
+		<ul>
+            <li>
+            Ingredients: Sparkling water, natural citrus extracts (lemon, lime, orange), electrolytes, and a touch of ginger.</li>
+			<li>
+            Tasting Experience: Recharge with the zesty blend of citrus fruits, delivering a burst of energy and hydration. The addition of ginger adds a revitalizing kick to the Energizing Citrus Surge.
+            </li>
+			</ul>
+		<h2>Green Tea Zen Energy Elixir:</h2>
+            <ul>
+            <li>
+             Ingredients: Green tea, matcha powder, honey, and a touch of lemon.</li>
+			 <li>
+              Tasting Experience: Find balance and focus with the Green Tea Zen Energy Elixir. Green tea and matcha provide a sustained energy lift, while honey and lemon add a harmonious touch of sweetness and acidity.	
+             </li>
+		<h3> Stay tuned more upcoming energy drinks pretty soon!!</h3>
+    </section>
+
+    <section id="order-drinks">
+        <h2>Order Drinks</h2>
+        <form id="orderForm">
+            <fieldset>
+                <legend style="color:rgb(148, 22, 22)"><b>ORDER DETAILS</b></legend>
+            <label for="category">Select Category:</label>
+            <select id="category" name="category" onchange="updateDrinkList()" required>
+                <option value="soft-drinks">Soft Drinks</option>
+                <option value="fruit-juices">Fruit Juices</option>
+                <option value="energy-drinks">Energy Drinks</option>
+            </select>
+
+            <label for="drink">Select Drink:</label>
+            <select id="drink" name="drink" required>
+                <!-- Options will be dynamically populated based on the selected category -->
+            </select>
+
+            <label id="quantityLabel" for="quantity">Select Quantity:</label>
+            <select id="quantity" name="quantity" required>
+                <option value="250">250ml</option>
+                <option value="750">750ml</option>
+                <option value="1000">1L</option>
+                <option value="2000">2L</option>
+            </select>
+
+                
+            </select>
+            <label id="priceLabel" for="price">Price:</label>
+            <div id="price"></div>
+            
+            <label for="fname">First Name:</label>
+            <input type="text" id="fname" name="fname" class="fname" value="John" required>
+
+            <label for="lname">Last Name:</label>
+            <input type="text" id="lname" name="lname" class="lname" value="Doe" required>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="address">Your Address:</label>
+            <input type="address" id="address" name="address" required>
+
+            <label for="tel">Phone number: </label>
+            <input type="tel" id="tel" name="tel" placeholder="12345-67890" pattern="[0-9]{5}-[0-9]{5}"><br>
+             
+            <label for="specifications">Any specifications for delivery of Order:</label>
+            <input type="text" id="specs" name="specs">
+
+            <!--<button type="button" onclick="submitOrder()">Place Order</button> -->
+            <button type="button" onclick="generateBill()">Generate Bill</button>
+        </fieldset>
+        </form>
+        <div id="confirmation">
+            <label id="confirmLabel">Confirm your order:</label>
+            <div id="bill"></div>
+            <div id="confirmButtons">
+                <button onclick="confirmOrder()">Yes</button>
+                <button onclick="cancelOrder()">No</button>
+            </div>
+        </div>
+
+        <div id="orderConfirmation" style="display: none;">
+            <p>Thank you for placing your order, <span id="customerName"></span>!</p>
+            <div id="orderDetails"></div>
+            <div id="price123"></div>
+        </div>
+    </section>
+
+
+        <div id="orderConfirmation" style="display: none;">
+            <p><h3 style="color:rgb(52, 207, 75)">Thank you for placing your order, <span id="customerfName"></span> <span id="customerlName"></span>&nbsp;! We'll get your drinks ready.</h3></p>
+        </div>
+    </section>
+    <hr>
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Welcome to the world of <b>ELIXIR</b>, where extraordinary flavors meet unparalleled refreshment. As a premier beverage company, 
+            ELIXIR takes pride in offering a diverse and tantalizing selection of soft drinks, fruit juices, and energy drinks that redefine your drinking experience.
+         <ul class="AboutDrinks">
+           <li><u> Soft Drinks</u>:
+            Indulge in the effervescent symphony of our soft drinks, where crisp bubbles dance with a burst of flavor. 
+            From classic cola to innovative and exotic blends, ELIXIR's soft drinks are crafted to perfection, ensuring a satisfying and uplifting experience with every sip.</li>
+            
+            <li><u>Fruit Juices</u>:
+            Experience the pure essence of nature with ELIXIR's exquisite fruit juices. 
+            Sourced from the finest orchards and groves, our juices capture the authentic taste of sun-ripened fruits.
+            Whether you crave the sweet embrace of tropical mango, the zing of citrus, or the refreshing notes of mixed berries, ELIXIR's fruit juices promise a journey through orchards in every bottle.
+            </li>
+            <li>
+            <u>Energy Drinks</u>:
+            For those seeking an invigorating boost, ELIXIR presents a line of energy drinks that not only rehydrate but also recharge your spirit. Packed with natural ingredients and designed to provide sustained energy, our energy drinks are the perfect companions for the go-getters and adventure-seekers.
+            </li>
+         </ul>
+            At ELIXIR, we understand that quality matters. Our soft drinks, fruit juices, and energy drinks are crafted with precision, using premium ingredients to ensure a consistently delightful taste. With a commitment to sustainability, our packaging reflects our dedication to preserving the environment, allowing you to enjoy ELIXIR guilt-free.
+            
+            Elevate your beverage experience with ELIXIR – where soft drinks, fruit juices, and energy drinks come together to create a symphony of refreshment that is as diverse as your tastes. Unleash the extraordinary with every sip, and let ELIXIR be your companion on the journey to a world of indulgent flavors.
+            
+        </p>
+    </section>
+    
+    
+    <hr>
+    <FOOTER class="foot">
+    <center>&copy; 2023 ELIXIR,All rights reserved</center></FOOTER>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+      var fadeImage = document.getElementById('fadeImage');
+      var container = document.querySelector('.container');
+
+      window.addEventListener('scroll', function () {
+        var scrollPosition = window.scrollY;
+        var opacity = 1 - scrollPosition / container.clientHeight;
+
+        fadeImage.style.opacity = opacity.toFixed(2); // Limit decimal places to 2 for smoother fading
+      });
+    });
+        // Fade in sections on scroll
+        document.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+                
+                if (rect.top <= windowHeight / 1.2) {
+                    section.classList.add('active');
+                }
+            });
+        });
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                window.scrollTo({
+                    top: targetElement.offsetTop - document.querySelector('nav').offsetHeight,
+                    behavior:'smooth'
+                });
+            });
+        });
+        
+        // Parallax effect for the header
+        window.addEventListener('scroll', function () {
+            const offset = window.scrollY;
+            document.querySelector('header').style.backgroundPositionY = offset * 0.5 + 'px';
+        });
+
+        const softDrinks = ['Citrus Splash','Tropical Bliss','Berry Fusion','Classic Cola Elegance','Green Apple Fizz'];
+        const fruitJuices = ['Mango Tango Splash','Berry Medley Burst','Watermelon Wave Quencher','Pinaple Paradise Punch','Citrus Breeze Bliss'];
+        const energyDrinks = ['Energizing Citrus Surge','Green Tea Zen Energy Elixir']
+        function updateDrinkList() {
+            const category = document.getElementById('category').value;
+            const drinkSelect = document.getElementById('drink');
+
+            // Clear existing options
+            drinkSelect.innerHTML = '';
+
+            // Populate drink options based on the selected category
+            const drinkOptions =
+                category === 'soft-drinks' ? softDrinks :
+                category === 'fruit-juices' ? fruitJuices :
+                energyDrinks;
+
+            drinkOptions.forEach(drink => {
+                const option = document.createElement('option');
+                option.value = drink.toLowerCase().replace(' ', '-');
+                option.text = drink;
+                drinkSelect.add(option);
+            });
+        }
+        // Initial drink list update
+        updateDrinkList();
+
+        function generateBill() {
+            const drink = document.getElementById('drink').value;
+            const category = document.getElementById('category').value;
+            const fname = document.getElementById('fname').value;
+            const lname = document.getElementById('lname').value;
+
+            // Assume a fixed quantity for energy drinks
+            const quantity = category === 'energy-drinks' ? 250 : document.getElementById('quantity').value;
+
+            // Calculate price based on quantity (assuming a fixed price per ml for simplicity)
+            const pricePerMl = 0.1; 
+            const price123 = (quantity * pricePerMl).toFixed(2);
+
+            // Display bill details
+            const billContent = `<p>${quantity}ml of ${drink} AND </p><p>Total Price: ${price123} /-</p>`;
+            document.getElementById('bill').innerHTML = billContent;
+
+            // Show the confirmation section
+            document.getElementById('confirmation').style.display = 'block';
+        }
+
+        // Function to confirm the order
+        function confirmOrder() {
+            // Get the confirmed order details
+            const drink = document.getElementById('drink').value;
+            const quantity = document.getElementById('quantity').value;
+            const fname = document.getElementById('fname').value;
+            const lname = document.getElementById('lname').value;
+
+            // For demonstration purposes, log the order details to the console
+            console.log('Confirmed Order:', { drink, quantity, fname, lname });
+
+            // Display the final confirmation message
+            document.getElementById('customerName').innerText = `${fname} ${lname}`;
+            document.getElementById('orderDetails').innerText = `You ordered ${quantity}ml of ${drink}.`;
+           // document.getElementById('price123').innerText= `Total Price: ${price123}`;
+            document.getElementById('orderForm').style.display = 'none';
+            document.getElementById('orderConfirmation').style.display = 'block';
+
+            // Hide the confirmation section
+            document.getElementById('confirmation').style.display = 'none';
+        }
+
+        // Function to cancel the order and reset the form
+        function cancelOrder() {
+            resetForm();
+            // Hide the confirmation section
+            document.getElementById('confirmation').style.display = 'none';
+        }
+
+        // Function to reset the form
+        function resetForm() {
+            // Reset form fields to default values
+            document.getElementById('orderForm').reset();
+            // Hide the confirmation section
+            document.getElementById('confirmation').style.display = 'none';
+        }
+    </script>
+    
+
+</body>
+</html>
